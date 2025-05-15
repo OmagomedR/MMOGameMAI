@@ -1,0 +1,194 @@
+/* Основные стили */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+:root {
+    --primary-color: #8B4513; /* Коричневый (дерево) */
+    --secondary-color: #A0522D; /* Светло-коричневый */
+    --accent-color: #DAA520; /* Золотой */
+    --dark-color: #2C221C; /* Темно-коричневый */
+    --light-color: #F5F5DC; /* Бежевый */
+    --success-color: #4CAF50;
+    --danger-color: #F44336;
+}
+
+body {
+    font-family: 'MedievalSharp', cursive;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+/* Секции */
+section {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+}
+
+/* Кнопки */
+button, [type="button"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 8px 0;
+    font-size: 16px;
+    font-family: 'MedievalSharp', cursive;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Специальные кнопки */
+[type="button"][value="confirm"] {
+    background-color: var(--success-color);
+}
+
+[type="button"][value="refresh"] {
+    background-color: var(--accent-color);
+}
+
+/* Поля ввода */
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    width: 100%;
+    margin: 8px 0 15px;
+    font-family: 'MedievalSharp', cursive;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Таблица рынка */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+tr:hover {
+    background-color: rgba(139, 69, 19, 0.1);
+}
+
+/* Профессии */
+.profession-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.profession-options button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.profession-options button i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+/* Ресурсы */
+.resource-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.resource-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    width: 30px;
+    text-align: center;
+}
+
+.resource-wood { color: #8B4513; } /* Коричневый для дерева */
+.resource-bread { color: #DAA520; } /* Золотой для хлеба */
+.resource-iron { color: #708090; } /* Серый для железа */
+.resource-gold { color: #FFD700; } /* Золотой для золота */
+
+/* Анимации */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Иконки для кнопок */
+.button-icon {
+    margin-right: 8px;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--secondary-color);
+    font-size: 14px;
+}

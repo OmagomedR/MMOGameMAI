@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 function GoldExchange({ onGoldExchange }) {
-    const [resourceType, setResourceType] = useState('');
+    const [resourceType, setResourceType] = useState('Iron');
     const [amount, setAmount] = useState(0);
     const handleGoldExchange = (resourceType, amount) => {
         onGoldExchange(resourceType, amount);
