@@ -12,6 +12,7 @@ function TradesList() {
 
             if (response.ok) {
                 setTrades(data);
+                setError('');
             } else {
                 setError(data.message || 'Failed to load trades');
             }
@@ -26,13 +27,10 @@ function TradesList() {
     }, []);
 
 
-    if (error) {
-        return <p style={{ color: 'red' }}>{error}</p>;
-    }
-
     return (
         <div className="trades">
             <h3>Market</h3> <button onClick={() => fetchTrades()}>refresh</button>
+            <p style={{ color: 'red' }}>{error}</p>
             <table className="trades-table">
                 <thead>
                 <tr>

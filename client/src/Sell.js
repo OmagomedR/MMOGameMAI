@@ -58,7 +58,7 @@ function Sell({ onSell, userId }) {
                 />
                 <label htmlFor="amount">Praice:</label>
                 <input
-                    type="number"
+                    type="smallnumber"
                     id="woodPraice"
                     value={WoodPraice}
                     onChange={(e) => setWoodPraice(parseInt(e.target.value))}
@@ -74,7 +74,7 @@ function Sell({ onSell, userId }) {
                 />
                 <label htmlFor="amount">Praice:</label>
                 <input
-                    type="number"
+                    type="smallnumber"
                     id="BreadPraice"
                     value={BreadPraice}
                     onChange={(e) => setBreadPraice(parseInt(e.target.value))}
@@ -90,7 +90,7 @@ function Sell({ onSell, userId }) {
                 />
                 <label htmlFor="amount">Praice:</label>
                 <input
-                    type="number"
+                    type="smallnumber"
                     id="IronPraice"
                     value={IronPraice}
                     onChange={(e) => setIronPraice(parseInt(e.target.value))}
