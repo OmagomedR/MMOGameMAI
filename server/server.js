@@ -7,8 +7,14 @@ const gameRoutes = require('./routes/game');
 
 const app = express();
 const port = 4000;
+app.enable('trust proxy'); // Render
+app.use(cors({
+    origin: [
+        'https://mmogamemai-front.onrender.com',
+    ],
+    credentials: true
+}));
 
-app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
