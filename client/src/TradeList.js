@@ -1,0 +1,68 @@
+// client/src/TradesList.js
+import React, { useState, useEffect } from 'react';
+
+function TradesList() {
+    const [trades, setTrades] = useState([]);
+    const [error, setError] = useState('');
+
+    const fetchTrades = async () => {
+        try {
+            const response = await fetch('http://localhost:4000/game/trades');
+            const data = await response.json();
+
+            if (response.ok) {
+                setTrades(data);
+            } else {
+                setError(data.message || 'Failed to load trades');
+            }
+        } catch (err) {
+            setError('Network error');
+            console.error('Fetch error:', err);
+        }
+    };
+
+    useEffect(() => {
+        fetchTrades();
+    }, []);
+
+
+    if (error) {
+        return <p style={{ color: 'red' }}>{error}</p>;
+    }
+
+    return (
+        <div className="trades">
+            <h3>Market</h3> <button onClick={() => fetchTrades()}>refresh</button>
+            <table className="trades-table">
+                <thead>
+                <tr>
+                    <th>Seller</th>
+                    <th>ID</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {trades.length > 0 ? (
+                    trades.map((trade, index) => (
+                        <tr key={index}>
+                            <td>{trade.Username}</td>
+                            <td>{trade.userId}</td>
+                            <td>{trade.trade}</td>
+                            <td>{trade.type}</td>
+                            <td>{trade.price.toFixed(2)}</td>
+                        </tr>
+                    ))
+                ) : (
+                    <tr>
+                        <td colSpan="3">No active trades available</td>
+                    </tr>
+                )}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export default TradesList;
