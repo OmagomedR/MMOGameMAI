@@ -242,7 +242,7 @@ router.get('/trades', async (req, res) => {
             { Username: user.username, userId: user.id, trade: user.trade3, type: "Wood", price: user.trade3Praice },
         ]);
 
-        const filteredTrades = allTrades.filter(t => t.trade != 0 || t.price != null || t.trade != null || t.price != '');
+        const filteredTrades = allTrades.filter(t => t.trade != 0 && t.price != null && t.trade != null && t.price != ''&& t.trade != '');
 
         res.json(filteredTrades);
     } catch (error) {
