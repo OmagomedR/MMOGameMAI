@@ -209,7 +209,7 @@ router.post('/buy', async (req, res) => {
                 status = "you dont have enogh gold for bread"
             }
         }else if(Type==="Iron"){
-            if(user.resource0>seller.trade1Praice){
+            if(user.resource0>=seller.trade1Praice){
                 user.resource1+=seller.trade1;
                 seller.trade1=0;
                 seller.resource0+=seller.trade1Praice;
@@ -242,7 +242,7 @@ router.get('/trades', async (req, res) => {
             { Username: user.username, userId: user.id, trade: user.trade3, type: "Wood", price: user.trade3Praice },
         ]);
 
-        const filteredTrades = allTrades.filter(t => t.trade != 0 && t.price != null);
+        const filteredTrades = allTrades.filter(t => t.trade != 0 && t.price != null && t.trade != null);
 
         res.json(filteredTrades);
     } catch (error) {

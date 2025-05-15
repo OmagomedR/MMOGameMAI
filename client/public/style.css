@@ -98,6 +98,7 @@ input[type="text"], input[type="number"] {
 }
 
 /*Ролан я добавил еще стили для мелкого текста и селекта, а то как то в глаза бросалось*/
+
 input[type="smallnumber"] {
     padding: 10px;
     border: 1px solid var(--primary-color);
