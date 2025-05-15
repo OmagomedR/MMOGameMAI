@@ -7,7 +7,7 @@ function TradesList() {
 
     const fetchTrades = async () => {
         try {
-            const response = await fetch('http://localhost:4000/game/trades');
+            const response = await fetch('https://mmogamemai-front.onrender.com/game/trades');
             const data = await response.json();
 
             if (response.ok) {

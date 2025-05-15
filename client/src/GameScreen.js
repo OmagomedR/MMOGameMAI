@@ -16,7 +16,7 @@ function GameScreen({ userId }) {
 
     const fetchUserData = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/game/resources/${userId}`);
+            const response = await fetch(`https://mmogamemai-front.onrender.com/game/resources/${userId}`);
             const data = await response.json();
 
             if (response.ok) {
@@ -38,7 +38,7 @@ function GameScreen({ userId }) {
 
     const handleProfessionChange = async (newProfession) => {
         try {
-            const response = await fetch('http://localhost:4000/game/change-profession', {
+            const response = await fetch('https://mmogamemai-front.onrender.com/game/change-profession', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ function GameScreen({ userId }) {
 
     const handleGoldExchange = async (resourceType, amount) => {
         try {
-            const response = await fetch('http://localhost:4000/game/gold-exchange', {
+            const response = await fetch('https://mmogamemai-front.onrender.com/game/gold-exchange', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ function GameScreen({ userId }) {
 
     const Levelbutton = async () => {
             try {
-                const response = await fetch('http://localhost:4000/game/levelup', {
+                const response = await fetch('https://mmogamemai-front.onrender.com/game/levelup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -116,7 +116,7 @@ function GameScreen({ userId }) {
         if (pushed >= 3) {
             pushed=0;
             try {
-                const response = await fetch('http://localhost:4000/game/gain-resources', {
+                const response = await fetch('https://mmogamemai-front.onrender.com/game/gain-resources', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -140,7 +140,7 @@ function GameScreen({ userId }) {
     };
     const handleSell = async (Wood_, WoodPraice_, Iron_, IronPraice_, Bread_, BreadPraice_) => {
         try {
-            const response = await fetch('http://localhost:4000/game/sell', {
+            const response = await fetch('https://mmogamemai-front.onrender.com/game/sell', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -165,7 +165,7 @@ function GameScreen({ userId }) {
 
     const handleBuy = async (sellerId, Type) => {
         try {
-            const response = await fetch('http://localhost:4000/game/Buy', {
+            const response = await fetch('https://mmogamemai-front.onrender.com/game/Buy', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
