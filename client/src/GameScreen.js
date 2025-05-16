@@ -191,7 +191,7 @@ function GameScreen({ userId }) {
 
     return (
         <div>
-            {mess && <h3>{mess}</h3>}
+            {mess && <h2>{mess}</h2>}
         <div style={{ display: 'flex', gap: '50px' }}>
             <div></div>
             <div>

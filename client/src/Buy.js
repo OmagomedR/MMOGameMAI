@@ -10,7 +10,7 @@ function Buy({ onBuy}) {
 
     return (
         <div>
-            <h3>{"Buy resources"}</h3>
+            <h2>{"Buy resources"}</h2>
             <div><label htmlFor="amount">enter seller id:</label>
 
                 <input

@@ -29,7 +29,7 @@ function TradesList() {
 
     return (
         <div className="trades">
-            <h3>Market</h3> <button onClick={() => fetchTrades()}>refresh</button>
+            <h2>Market</h2> <button onClick={() => fetchTrades()}>refresh</button>
             <p style={{ color: 'red' }}>{error}</p>
             <table className="trades-table">
                 <thead>

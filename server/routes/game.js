@@ -145,8 +145,12 @@ router.post('/sell', async (req, res) => {
         }
 
         let status = 'Trade positions made';
-        if(Wood <= user.resource3 && Iron <= user.resource1 && Bread <= user.resource2) {
+
+        if(Wood <= user.resource3 + user.trade3 && Iron <= user.resource1 + user.trade1 && Bread <= user.resource2 + user.trade2) {
             if(IronPraice >= 0 && BreadPraice >= 0 && WoodPraice >=0){
+                if(Wood <=0 || Bread <= 0 || Iron <= 0){
+                    status = "Negative resorces? Trust me my lord, bank will get your noble ass before midnight";
+                }else{
                 user.resource3 += user.trade3;
                 user.resource2 += user.trade2;
                 user.resource1 += user.trade1;
@@ -159,6 +163,7 @@ router.post('/sell', async (req, res) => {
                 user.trade1Praice = IronPraice;
                 user.trade2Praice = BreadPraice;
                 user.trade3Praice = WoodPraice;
+                }
             }else{
                 status = "Praice cant be positive";
             }
@@ -190,31 +195,37 @@ router.post('/buy', async (req, res) => {
         let status = 'congrats on buying';
         if(Type==="Wood"){
             if(user.resource0>=seller.trade3Praice){
+                if(seller.trade3!==0){
                 user.resource3+=seller.trade3;
                 seller.trade3=0;
                 seller.resource0+=seller.trade3Praice;
                 user.resource0-=seller.trade3Praice;
                 seller.trade3Praice=0;
+                }else{status = "seller dont have wood"}
             }else{
                 status = "you dont have enogh gold for wood"
             }
         }else if(Type==="Bread"){
             if(user.resource0>=seller.trade2Praice){
+                if(seller.trade2!==0){
                 user.resource2+=seller.trade2;
                 seller.trade2=0;
                 seller.resource0+=seller.trade2Praice;
                 user.resource0-=seller.trade2Praice;
                 seller.trade2Praice=0;
+                }else{status = "seller dont have Bread"}
             }else{
                 status = "you dont have enogh gold for bread"
             }
         }else if(Type==="Iron"){
             if(user.resource0>=seller.trade1Praice){
+                if(seller.trade1!==0){
                 user.resource1+=seller.trade1;
                 seller.trade1=0;
                 seller.resource0+=seller.trade1Praice;
                 user.resource0-=seller.trade1Praice;
                 seller.trade1Praice=0;
+                }else{status = "seller dont have wood"}
             }else{
                 status = "you dont have enogh gold for iron"
             }
