@@ -148,7 +148,7 @@ router.post('/sell', async (req, res) => {
 
         if(Wood <= user.resource3 + user.trade3 && Iron <= user.resource1 + user.trade1 && Bread <= user.resource2 + user.trade2) {
             if(IronPraice >= 0 && BreadPraice >= 0 && WoodPraice >=0){
-                if(Wood <=0 || Bread <= 0 || Iron <= 0){
+                if(Wood <0 || Bread < 0 || Iron < 0){
                     status = "Negative resorces? Trust me my lord, bank will get your noble ass before midnight";
                 }else{
                 user.resource3 += user.trade3;
