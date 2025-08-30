@@ -72,7 +72,7 @@ function Sell({ onSell, userId }) {
                     value={Bread}
                     onChange={(e) => setBread(parseInt(e.target.value))}
                 />
-                <label htmlFor="amount">Praice:</label>
+                <label htmlFor="amount">Price:</label>
                 <input
                     type="smallnumber"
                     id="BreadPraice"
@@ -88,7 +88,7 @@ function Sell({ onSell, userId }) {
                     value={Iron}
                     onChange={(e) => setIron(parseInt(e.target.value))}
                 />
-                <label htmlFor="amount">Praice:</label>
+                <label htmlFor="amount">Price:</label>
                 <input
                     type="smallnumber"
                     id="IronPraice"

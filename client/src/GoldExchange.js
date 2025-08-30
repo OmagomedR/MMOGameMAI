@@ -10,7 +10,7 @@ function GoldExchange({ onGoldExchange }) {
 
     return (
         <div>
-            <h2>Resorce to gold</h2>
+            <h2>Resource to gold</h2>
                 <div>                    <label htmlFor="amount">Amount to exchange:</label>
 
                     <input

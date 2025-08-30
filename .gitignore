@@ -1,0 +1,15 @@
+.idea/
+cmake-build-debug/
+cmake-build-release/
+.vs/
+out/
+build/
+Debug/
+temp/
+*.log
+*.tmp
+*.swp
+*.bak
+.env
+*.DS_Store
+*.xcodeproj
