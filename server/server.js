@@ -6,15 +6,21 @@ const authRoutes = require('./routes/auth');
 const gameRoutes = require('./routes/game');
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 app.enable('trust proxy'); // Render
-app.use(cors({
-    origin: [
-        'https://mmogamemai-front.onrender.com',
-    ],
-    credentials: true
-}));
+const corsOptions = {
+    credentials: true,
+    origin: function (origin, callback) {
+        if (process.env.NODE_ENV === 'development' || !origin) {
+            callback(null, true);
+        }
+        else {
+            const allowedOrigins = 'https://mmogamemai-front.onrender.com';
+        }
+    }
+};
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -38,14 +44,16 @@ process.on('uncaughtException', (err) => {
 sequelize.sync({ force: false }) // если true то база упадет
     .then(() => {
         console.log('Database synced successfully.');
-    })
-    .then(() => {
-        app.listen(port, () => {
+        app.listen(port, '0.0.0.0', () => {
             console.log(`Server listening on port ${port}`);
+            console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
             console.log("Server started successfully!");
+            if (process.env.NODE_ENV === 'development') {
+                console.log(`Local: http://localhost:${port}`);
+                console.log(`Test endpoint: http://localhost:${port}/test`);
+            }
         });
     })
     .catch((error) => {
         console.error('Error syncing database:', error);
-        console.error(error);
     });

@@ -7,7 +7,7 @@ function TradesList() {
 
     const fetchTrades = async () => {
         try {
-            const response = await fetch('https://mmogamemai.onrender.com/game/trades');
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/game/trades`);
             const data = await response.json();
 
             if (response.ok) {

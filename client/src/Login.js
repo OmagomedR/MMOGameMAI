@@ -9,7 +9,7 @@ function Login({ onLoginSuccess }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('https://mmogamemai.onrender.com/auth/login', { // Replace with your server URL
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

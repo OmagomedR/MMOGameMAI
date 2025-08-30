@@ -10,7 +10,7 @@ function Register() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('https://mmogamemai.onrender.com/auth/register', { // Replace with your server URL
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
