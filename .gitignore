@@ -11,5 +11,13 @@ temp/
 *.swp
 *.bak
 .env
-*.DS_Store
+.DS_Store
 *.xcodeproj
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+cmake_install.cmake
+venv/
+env/
+__pycache__/
+*/node_modules/*
